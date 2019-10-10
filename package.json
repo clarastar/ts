@@ -1,0 +1,24 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clarastar/ts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clarastar/ts/issues"
+  },
+  "homepage": "https://github.com/clarastar/ts#readme",
+  "dependencies": {
+    "@types/node": "^12.7.11",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  }
+}

@@ -1,3 +1,10 @@
+let a: number = 123
+let b:string = 'eyyeye'
+let c:boolean[] =[true, false]
+
+
+# 3+ [1]
+
 
 function identity<T>(arg: T): T {
   return arg
