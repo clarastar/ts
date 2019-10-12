@@ -36,3 +36,15 @@ function voidFuction() {
   let a = 2 + 2
   let b = a*a
 }
+
+// a function that return never
+function errorFunction() {
+  throw TypeError('I always error')
+}
+
+// another function that return never
+function anotherFunction() {
+  while(true) {
+    console.log('aaa')
+  }
+}
