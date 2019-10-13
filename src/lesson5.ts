@@ -1,3 +1,5 @@
+import { type } from "os";
+
 enum Language {
   English,
   Spanish,
@@ -99,3 +101,94 @@ function fancyDate() {
   return ${this.getDate()}/${this.getMonth()}/${this.getFullYear()}
 }
 fancyDate.call(new Date)
+
+// generator ???
+// not know why it complains
+function* createFibonacciGenerator() {
+  let lesson5_a= 0
+  let lesson5_b =1
+  while(true) {
+    yield lesson5_a
+    [a, b] =[b, a+b]
+  }
+}
+
+
+// Type why it complains again
+type Log = (message: string, userId?:string) => void
+let lesson5_log:Log=(message, userId:'not signed') => {
+  let time = new Date().toISOString()
+}
+
+function times(
+  f: (index: number)=>void,
+  n: number
+) {
+  for (let i=0; i<n; i++) {
+    f(i)
+  }
+}
+
+times(n=>console.log(n), 4)
+
+function f(n) {
+  console.log(n)
+}
+
+times(f(n), 4)
+
+// Shorthand call signature
+type Log2 = (message: string, userId?: string)=>void
+// Full call signature
+type Log3 = {
+  (message: string, userId?:string): void
+}
+
+// Overloaded Function: a function with multiple signatures
+type Reserve = {
+  (from: Date, to: Date, destination: string): Reservation
+}
+
+type createElement = {
+  (tag: 'a'): HTMLAnchorElement,
+  (tag: 'canvas'): HTMLCanvasElement,
+  (tag: 'table'): HTMLTableElement,
+  (tag: string):HTMLElement,
+}
+
+// TODO: WHY IT COMPLAINS?
+let createElement: createElement = (tag: string):HTMLElement=>{
+
+}
+
+function createElement1(tag: 'a'): HTMLAnchorElement
+function createElement2(tag: 'canvase'): HTMLCanvasElement
+function createElement3(tag: 'table'): HTMLTableElement
+function createElement4(tag: string):HTMLElement {}
+
+function warnUser(warning) {
+  if(warnUser.wasCalled) {
+    return
+  }
+  warnUser.wasCalled = true
+  alert(warning)
+}
+
+warnUser.wasCalled = false
+
+// rewrite
+type WarnUser0 = {
+  (warning: string): void,
+  wasCalled: boolean
+}
+
+let warnUser0:warnUser0=(warning: string) =>{
+  if(warnUser0.wasCalled) {
+    return
+  }
+  warnUser0.wasCalled = true
+  alert(warning)
+}
+warnUser0.wasCalled = false
+
+
